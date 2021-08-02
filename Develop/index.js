@@ -7,10 +7,15 @@ const questions = ["What is the name of your project?", "Describe your project."
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-  fs.writeFile('readme.md', data, (error) => {
-
-  })
-}
+  fs.writeFile(fileName, data, (error) => {
+    if (error) {
+      console.log('There was an error.');
+    } else {
+      generateMardown(data);
+    };
+    
+  });
+};
 
 // TODO: Create a function to initialize app
 function init() {
@@ -50,7 +55,7 @@ function init() {
       let theCollabs = answers.collabs.split(",");
       console.log(theTitle, theCollabs[1]); 
     });
-      //(answers => writeToFile('readme.md', answers));
+    (answers => writeToFile('readme.md', answers));
     
   };
 
