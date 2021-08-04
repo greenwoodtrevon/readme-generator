@@ -2,20 +2,21 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown')
+
 // TODO: Create an array of questions for user input
-const questions = ["What is the name of your project?", "Describe your project.", "What is the live link to your project?", "What steps are required to install your project? Separate steps with commas.", "Who were the collaborators for your project? Separate with commas."];
+const questions = ["What is the name of your project?", "Describe your project.", "What is the live link to your project?", "What steps are required to install your project? Separate steps with commas.", "How can I use this?", "Who were the collaborators for your project? Separate with commas.", "What is your GitHub username? This will be for questions from users."];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, (error) => {
-    if (error) {
-      console.log('There was an error.');
-    } else {
-      generateMardown(data);
-    };
+// function writeToFile(fileName, data) {
+//   return fs.writeFile(fileName, data, (error) => {
+//     if (error) {
+//       console.log('There was an error.');
+//     } else {
+//       generateMarkdown(data);
+//     };
     
-  });
-};
+//   });
+// };
 
 // TODO: Create a function to initialize app
 function init() {
@@ -43,9 +44,19 @@ function init() {
       },
       {
         type: 'input',
-        name: 'collabs',
+        name: 'usage',
         message: questions[4]
       },
+      {
+        type: 'input',
+        name: 'collabs',
+        message: questions[5]
+      },
+      {
+        type: 'input',
+        name: 'gitHub',
+        message: questions[6]
+      }
     ])
     .then(answers => {
       let theTitle = answers.title;
@@ -53,11 +64,18 @@ function init() {
       let theLink = answers.link;
       let theSteps = answers.steps.split(",");
       let theCollabs = answers.collabs.split(",");
-      console.log(theTitle, theCollabs[1]); 
-    });
-    (answers => writeToFile('readme.md', answers));
-    
-  };
+      let answerString = JSON.stringify(answers);
+      console.log(answerString);
+      // (answers => writeToFile('readme.md', answers));
+      fs.writeFileSync('README.md', generateMarkdown(answers), (error) => {
+        if (error) {
+          console.log(error)
+        } else {
+          console.log('success!')
+        }
+      });
+  });
+};
 
 // Function call to initialize app
 init();
