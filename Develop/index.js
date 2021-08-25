@@ -56,6 +56,18 @@ function init() {
         type: 'input',
         name: 'gitHub',
         message: questions[6]
+      },
+      {
+        type: 'list',
+        name: 'license',
+        message: 'What license would you like to use?',
+        choices: [
+          "Apache-2.0",
+          "Mozilla-Public-License-2.0",
+          "MIT-License",
+          "Common-Development-and-Distribution-License",
+          "None"
+        ]
       }
     ])
     .then(answers => {

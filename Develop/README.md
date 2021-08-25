@@ -1,29 +1,38 @@
-# README.md Genereator
-
+# ReadMe.md Generator
+  ### License
+  ![githubLicense](https://img.shields.io/badge/license-MIT License-blue.svg)
 
   ## Description:
 
-  This algorithm takes user input to generate a unique, professional readme markdown dile
+  It is a prompt-filled program that takes user input to dynamically create a professional Readme markdown file.
 
-  ## Live Link:
+  ## Table of Contents
+  * [License](#License)
+  * [Link](#Link)
+  * [Steps](#Steps)
+  * [Usage](#Usage)
+  * [Contributors](#Contributors)
+  * [GitHub](#GitHub)
 
-  link
+  ## Link
 
-  ## Steps Required:
+  link.link
 
-  - n
-  - p
-  - m
+  ## Steps
 
-  ## Usage:
+  - npm i
+  - npm start
+  - undefined
 
-  Clone down the repository, then navigate to the develop folder and follow the installation steps
+  ## Usage
 
-  ## Contributors:
+  Follow the installation steps and the questions will appear right away so you can create your file!
 
-  - T
-  - r
+  ## Contributors
 
-  ## Questions? Contact me on GitHub
+  - Me
+  - Myself
 
-  greenwoodtrevon
+  ## GitHub
+
+  github.com/greenwoodtrevon
